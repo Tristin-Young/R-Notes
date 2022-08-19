@@ -1,1 +1,1 @@
-#test
+All of these notes are taken from watching YouTube videos created by MarinStatsLectures - R Programming and Statistics. The playlist that these notes are curated from can be found at https://www.youtube.com/watch?v=riONFzJdXcs&list=PLqzoL9-eJTNATicffatWXTEjwMq6N0Sf3. All credit goes to the YouTube channel, these are just follow alongs to compliment the videos.
