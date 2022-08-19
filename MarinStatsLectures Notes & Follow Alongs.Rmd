@@ -54,4 +54,30 @@ dataset4 <- read.table(file.choose(), header=TRUE, sep="\t")
 print(dataset4)
 ```
 
-## Tutorial 2: Importing Data Into RStudio using RStudio (readxl)
+## Tutorial 2: Exporting Data from RStudio
+
+The most flexible command for writing data is the **write.table** command. The **write.table** command takes 3 arguments, the **data** to be exported from R, the **file** to be exported to, denoted in quotations, and the **sep** argument, indicating the type of separation the file has.
+
+```{r}
+write.table(dataset1, file="testExport.csv", sep=",")
+```
+
+Note that saving a file this way will save it into our current working directory.
+
+This will output a file with your given data, including row names. To omit row names, add the **row.names** field shown below and set it to false.
+
+```{r}
+write.table(dataset1, file="testExportNoNames.csv", row.names=FALSE, sep=",")
+```
+
+To save a file outside the current working directory simply specify a path in the **file** field. Note this example will not work on your machine until the path is adjusted to your file explorer desired path.
+
+```{r}
+write.table(dataset1, file="/Users/Trist/Desktop/TestNonCWDSave.csv", row.names=FALSE, sep=",")
+```
+
+Alternatively, we can use the **write.csv** command. It takes three arguments, **data**, **file,** and **row.names,** all with similar usages as above.
+
+```{r}
+write.csv(dataset1, file="testWritecsv.csv", row.names=FALSE)
+```
