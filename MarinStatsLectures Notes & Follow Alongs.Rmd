@@ -1,0 +1,57 @@
+---
+title: "R Notes MarinStatsLectures"
+output: html_notebook
+---
+
+All of these notes are taken from watching YouTube videos created by MarinStatsLectures - R Programming and Statistics. The playlist that these notes are curated from can be found [here](https://www.youtube.com/watch?v=riONFzJdXcs&list=PLqzoL9-eJTNBDdKgJgJzaQcY6OXmsXAHU&index=1 "Marin YouTube Playlist").
+
+## Tutorial 1: Importing Data Into RStudio From a CSV / TXT File
+
+\*\*\* If you ever need help with anything you can search the literature of a function using the below function calls \*\*\*
+
+```{r}
+help("read.csv")
+?read.csv
+```
+
+Step 1: Save data from excel into CSV/TXT (CSV is recommended)
+
+For CSV:
+
+The **read.csv()** command takes two arguments, the **file** and if the top row is a **header**
+
+In this case, instead of defiling a path for the **file** argument, we are calling the file.choose() function. This will trigger a popup screen at run-time to choose a file from your file explorer.
+
+The **header** argument is a Boolean variable. If the first row of your data set has variable names / headers, **header=TRUE**. If the first row of your data set does not have variable names / headers, **header=FALSE**.
+
+```{r}
+dataset1 <- read.csv(file.choose(), header=TRUE)
+print(dataset1)
+```
+
+Alternatively, the **read.table()** command can be used to import data from a CSV. The command operates the same as the previously mentioned read.csv() command, with one addition.
+
+The third argument, \*\*sep="", notes the character separating the values in the list. In the case of a CSV,\*\* sep="," since the values are separated by commas.
+
+```{r}
+dataset2 <- read.table(file.choose(), header=TRUE, sep=",")
+print(dataset2)
+```
+
+For TXT:
+
+The process for importing TXT files is very similar to the process of importing CSV files. The only difference is that instead of using the read.csv() command you use the **read.delim()** command. Both commands take the same arguments.
+
+```{r}
+dataset3 <- read.delim(file.choose(), header=TRUE)
+print(dataset3)
+```
+
+Alternatively, the **read.table()** command can be used to import data from a TXT. The only difference from the above instructions is that **sep** has a value of "\\t" for a tab instead of "," for a comma.
+
+```{r}
+dataset4 <- read.table(file.choose(), header=TRUE, sep="\t")
+print(dataset4)
+```
+
+## Tutorial 2: Importing Data Into RStudio using RStudio (readxl)
